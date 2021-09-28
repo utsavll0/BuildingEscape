@@ -11,23 +11,20 @@ UWorldPosition::UWorldPosition()
 	// ...
 }
 
-
 // Called when the game starts
 void UWorldPosition::BeginPlay()
 {
 	Super::BeginPlay();
 
-	// FString ObjectName = GetOwner()->GetName();
-	UE_LOG(LogTemp, Warning, TEXT("Object name is %s"), *GetOwner()->GetName());
-	
+	FString ObjectName = GetOwner()->GetName();
+	FString ObjectPosition = GetOwner()->GetActorLocation().ToString();
+	UE_LOG(LogTemp, Warning, TEXT("%s position is %s"), *ObjectName, *ObjectPosition);
 }
 
-
 // Called every frame
-void UWorldPosition::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
+void UWorldPosition::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction *ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
 	// ...
 }
-
